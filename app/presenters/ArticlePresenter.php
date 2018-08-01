@@ -50,7 +50,7 @@ class ArticlePresenter extends Nette\Application\UI\Presenter
   public function renderShow($id)
   {
      $article = $this->entityManager->getRepository(Article::class);
-        //dump($article->find($id));
+        $this->template->article = $article->find($id);
   }
 
 
