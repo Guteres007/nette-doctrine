@@ -26,8 +26,8 @@ class HomepagePresenter extends Nette\Application\UI\Presenter
     public function renderDefault()
     {
         $article = $this->entityManager->getRepository(Article::class);
-        dump($article->findAll());
-        exit();
+        $this->template->articles = $article->findAll();
+
     }
 
 }

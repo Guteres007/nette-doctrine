@@ -67,4 +67,14 @@ public function getSlug()
       return $this->slug;
   }
 
+ public function getId()
+ {
+   return $this->id;
+ }
+
+ public function getAllArticles()
+ {
+   $this->findAll();
+ }
+
 }
