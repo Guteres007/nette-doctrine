@@ -2,12 +2,28 @@
 namespace App\Model;
 
 use Doctrine\ORM\Mapping as ORM;
+use Kdyby\Doctrine\EntityManager;
 
 /**
  * @ORM\Entity
  */
 class Article
 {
+
+
+
+   public $entityManager;
+
+  public function __construct(EntityManager $entityManager)
+  {
+
+     $this->entityManager  = $entityManager;
+
+  }
+
+
+
+
 
 
  /**
@@ -74,7 +90,7 @@ public function getSlug()
 
  public function getAllArticles()
  {
-   $this->findAll();
+   return $this->entityManager->getRepository(Article::class)->findAll();
  }
 
 }

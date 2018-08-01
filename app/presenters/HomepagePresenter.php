@@ -13,11 +13,13 @@ class HomepagePresenter extends Nette\Application\UI\Presenter
 {
 
   public $entityManager;
+  public $article;
 
-  public function __construct(EntityManager $entityManager)
+  public function __construct(EntityManager $entityManager, Article $article)
   {
 
      $this->entityManager  = $entityManager;
+     $this->article  = $article;
 
   }
 
@@ -25,8 +27,8 @@ class HomepagePresenter extends Nette\Application\UI\Presenter
 
     public function renderDefault()
     {
-        $article = $this->entityManager->getRepository(Article::class);
-        $this->template->articles = $article->findAll();
+
+        $this->template->articles = $this->article->getAllArticles();
 
     }
 
