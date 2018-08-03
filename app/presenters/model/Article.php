@@ -29,7 +29,7 @@ class Article
  /**
      * One Article has One Slug.
      * @ORM\OneToOne(targetEntity="Slug", mappedBy="article",cascade={"persist"})
-     * @ORM\JoinColumn(name="slug_id", referencedColumnName="id",nullable=false)
+     * @ORM\JoinColumn(name="slug_id", referencedColumnName="id",nullable=true,onDelete="SET NULL")
      */
     private $slug;
 

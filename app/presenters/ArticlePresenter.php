@@ -73,8 +73,10 @@ class ArticlePresenter extends Nette\Application\UI\Presenter
          $article->setTitle($values->title);
          $article->setBody($values->body);
          $article->getSlug()->setName($values->slug);
+
          $this->entityManager->persist($article);
          $this->entityManager->flush();
+
          $this->flashMessage('Článek updatován.');
          $this->redirect('Homepage:');
 
@@ -97,6 +99,20 @@ class ArticlePresenter extends Nette\Application\UI\Presenter
 
              $this->flashMessage('Článek přidán.');
              $this->redirect('Homepage:');
+
              }
+
+    }
+
+    public function actionDelete($id)
+    {
+     $article = $this->entityManager->getRepository(Article::class);
+     $articleId = $article->find($id);
+
+     $this->entityManager->remove($articleId);
+     $this->entityManager->flush();
+
+     $this->flashMessage('Článek smazán.');
+     $this->redirect('Homepage:');
     }
 }

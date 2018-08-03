@@ -13,7 +13,7 @@ class Slug
  /**
      * One SLug has One Article.
      * @ORM\OneToOne(targetEntity="Article", mappedBy="slug",cascade={"persist"})
-     * @ORM\JoinColumn(name="article_id", referencedColumnName="id",nullable=false)
+     * @ORM\JoinColumn(name="article_id", referencedColumnName="id",nullable=true,onDelete="SET NULL")
      */
     private $article;
 

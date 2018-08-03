@@ -6,6 +6,7 @@
 <div style="text-align:center">
 {foreach $articles as $article}
 <h4><a n:href="Article:show $article->getId()">{$article->getTitle()}</a><h4>
+<a n:href="Article:delete $article->getId()">Delete</a>
 <br>
 {/foreach}
 </div>
