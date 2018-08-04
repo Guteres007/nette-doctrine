@@ -5,7 +5,6 @@ use Nette\Application\UI;
 use Nette;
 
 use Kdyby\Doctrine\EntityManager;
-use Doctrine\ORM\Query;
 use App\Model\Article;
 use App\Model\Slug;
 
@@ -32,7 +31,7 @@ class ArticlePresenter extends Nette\Application\UI\Presenter
   {
    $article = $this->entityManager->getRepository(Article::class);
    $article = $article->find($id);
-   // dump([$article->getTitle(),$article->getBody(),$article->getSlug()]);
+
    $this['createArticleForm']->setDefaults([
     "title"=>$article->getTitle(),
     "body"=>$article->getBody(),
